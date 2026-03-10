@@ -21,49 +21,50 @@
 
 def question2():
     answerDiscount = 0.9
-    answerNoise = 0.2
+    answerNoise = 0.0 # changed this from 0.2 to 0.0 so the agent moves deterministically
     return answerDiscount, answerNoise
 
+# Prefer the close exit (+1), risking the cliff (-10)
 def question3a():
-    answerDiscount = None
-    answerNoise = None
-    answerLivingReward = None
+    answerDiscount = 0.1 # has to be 0 < d <= 0.5 to prefer closer exit so any value w/ this condition works
+    answerNoise = 0.0
+    answerLivingReward = -1.0
     return answerDiscount, answerNoise, answerLivingReward
-    # If not possible, return 'NOT POSSIBLE'
 
+# Prefer the close exit (+1), but avoiding the cliff (-10)
 def question3b():
-    answerDiscount = None
-    answerNoise = None
-    answerLivingReward = None
+    answerDiscount = 0.3
+    answerNoise = 0.2
+    answerLivingReward = -1.0 # agent wants to exit asap
     return answerDiscount, answerNoise, answerLivingReward
-    # If not possible, return 'NOT POSSIBLE'
 
+#Prefer the distant exit (+10), risking the cliff (-10)
 def question3c():
-    answerDiscount = None
-    answerNoise = None
-    answerLivingReward = None
+    answerDiscount = 0.8
+    answerNoise = 0.0 
+    answerLivingReward = -0.1
     return answerDiscount, answerNoise, answerLivingReward
-    # If not possible, return 'NOT POSSIBLE'
 
+# Prefer the distant exit (+10), avoiding the cliff (-10)
 def question3d():
-    answerDiscount = None
-    answerNoise = None
-    answerLivingReward = None
+    answerDiscount = 0.8
+    answerNoise = 0.2
+    answerLivingReward = 0.0
     return answerDiscount, answerNoise, answerLivingReward
-    # If not possible, return 'NOT POSSIBLE'
 
+# Avoid both exits and the cliff (so an episode should never terminate)
 def question3e():
-    answerDiscount = None
-    answerNoise = None
-    answerLivingReward = None
+    answerDiscount = 0.9
+    answerNoise = 0.2
+    answerLivingReward = 10.0 # has to be positive and large enough to outweigh exits
     return answerDiscount, answerNoise, answerLivingReward
-    # If not possible, return 'NOT POSSIBLE'
 
 def question7():
-    answerEpsilon = None
-    answerLearningRate = None
-    return answerEpsilon, answerLearningRate
+    # answerEpsilon = 0
+    # answerLearningRate = 1
+    # return answerEpsilon, answerLearningRate
     # If not possible, return 'NOT POSSIBLE'
+    return 'NOT POSSIBLE'
 
 if __name__ == '__main__':
     print('Answers to analysis questions:')
